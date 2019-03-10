@@ -1,0 +1,14 @@
+---
+- hosts: all
+  connection: "local"
+  vars:
+    users:
+     - user10
+     - user11
+     - user12
+     - user13
+  tasks:
+   - name: "Create user accounts and add users to groups"
+     user:
+      name: "{{ item }}"
+     with_items: "{{ users }}"
